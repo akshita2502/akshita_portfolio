@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-import profileIcon from "../assets/images/profileicon.png";
+import profileIcon from "./Akshita Profile Photo2.jpeg";
 
 export default function About() {
   return (
