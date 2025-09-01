@@ -21,7 +21,7 @@ const timeline = [
   {
     title: "High School",
     org: "Oxford English School - ICSE",
-    desc: "Chose computers for Elective in grade 10th",
+    desc: "Learnt Programming in Java in grade 10th",
   },
 //   {
 //     title: "Portfolio Development",
