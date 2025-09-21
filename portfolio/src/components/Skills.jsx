@@ -1,12 +1,12 @@
 import {
-  FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaPython, FaGitAlt,
-  FaGithub, FaBootstrap, FaDatabase, FaAws
+  FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaGitAlt,
+  FaGithub, FaAws
 
 } from "react-icons/fa";
 import {
   SiFastapi, SiFramer,
   SiMongodb, SiPostgresql, SiReactrouter,
-  SiClickhouse, SiJenkins, SiDbeaver, SiAmazonaws, SiPostman
+  SiClickhouse, SiJenkins, SiDbeaver, SiPostman
 } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
 import { motion } from "framer-motion";

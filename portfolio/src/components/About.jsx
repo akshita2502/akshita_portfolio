@@ -8,7 +8,7 @@ export default function About() {
       id="about"
       className="min-h-screen bg-black text-white px-6 py-20 flex justify-center items-center"
     >
-      <div className="max-w-6xl w-full flex flex-col md:flex-row items-center gap-12">
+      <div className="max-w-6xl w-full flex flex-col md:flex-row items-center md:text-left gap-8 md:gap-12">
         {/* Profile Image */}
         <motion.img
           src={profileIcon} // ✅ Replace with your image path
@@ -29,10 +29,13 @@ export default function About() {
           transition={{ duration: 0.6 }}
         >
           <div className="text-2xl font-bold mb-6 leading-relaxed text-white relative">
-          <p className="ml-44">I'm <span className="text-cyan-400">Akshita Gunturi</span>, a backend developer</p>
-          <p className="ml-44">passionate about building RESTful APIs.</p>
+          {/* <p className="ml-44">I'm <span className="text-cyan-400">Akshita Gunturi</span>, a backend developer</p>
+          <p className="ml-44">passionate about building RESTful APIs.</p> */}
           {/* <p className="text-center">applications.</p> */}
           </div>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 leading-relaxed text-white">
+            I'm <span className="text-cyan-400">Akshita Gunturi</span>, a backend developer passionate about writing clean and optimal code and building scalable web applications.
+          </h2>
 
           <p className="text-gray-300 text-lg leading-relaxed mb-6">
             I am a passionate and dedicated <strong className="text-white">Backend Developer</strong>  with a degree in <strong className="text-white">Computer Science Engineering </strong> and <strong className="text-white">1 year</strong> of hands-on experience in building robust, scalable, and efficient backend systems. My core expertise lies in designing and implementing <strong className="text-white">RESTful APIs</strong> using modern Python frameworks such as FastAPI and Tornado, enabling rapid development and deployment of backend services.
@@ -45,6 +48,7 @@ export default function About() {
           <p className="text-gray-300 text-lg leading-relaxed mb-6">
            In addition to backend development, I have a keen interest in<strong className="text-white">Full Stack Development, Generative AI (GenAI), and Machine Learning (ML).</strong> I am always looking to explore innovative technologies and incorporate them into practical solutions.
           </p>
+          
          
           {/* Social Icons */}
           <div className="flex gap-6 text-2xl text-white">

@@ -1,8 +1,5 @@
 import ProjectCard from "./ProjectCard";
-import empImage from "../assets/images/empmanager.png";
-import mylandingImage from "../assets/images/landingpage.png";
 import myportfolioImage from "../assets/images/portfoliosc.png";
-import ParticleBackground from "./ParticleBackground";
 
 const projects = [
   // {
@@ -28,7 +25,7 @@ const projects = [
     // image: myportfolioImage,
     title: "My Portfolio",
     description:
-      "A curated collection of my full stack development projects built with modern technologies like React, FastAPI, and Tailwind CSS.Each project showcases my skills in designing, developing, and deploying scalable applications from scratch.",
+      "A curated collection of my full stack development projects built with modern technologies like React, FastAPI, and Tailwind CSS. Each project showcases my skills in designing, developing, and deploying scalable applications from scratch.",
     tech: ["FastAPI", "ReactJS", "JavaScript","TailWindCSS"],
     demoLink: "https://ats-checker-demo.com",
     githubLink: "https://github.com/harshini0804/Project-1.git",
@@ -37,8 +34,8 @@ const projects = [
     image: myportfolioImage,
     title: "ContentCrafter - AI-Powered Content Generator",
     description:
-      " AI-powered app that generates real-time course content using transformer models with a React preview/save interface, automating manual content creation, reducing cotent preparation time, and improving content organization.",
-    tech: ["FastAPI","ReactJS", "CSS", "JavaScript","TailWindCSS", "PostgreSQL", "HuggingFace"],
+      " AI-powered app that generates real-time course content using transformer models with a React preview/save interface, automating manual content creation, reducing content preparation time, and improving content organization.",
+    tech: ["FastAPI","ReactJS", "CSS", "JavaScript", "PostgreSQL", "HuggingFace"],
     demoLink: "https://ats-checker-demo.com",
     githubLink: "https://github.com/harshini0804/Project-1.git",
   },

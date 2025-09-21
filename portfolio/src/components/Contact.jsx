@@ -1,100 +1,88 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { useForm, ValidationError } from '@formspree/react';
 
-export default function Contact() {
-  const [status, setStatus] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const data = new FormData(form);
+export default function ContactForm() {
+  // The useForm hook handles form submission.
+  // Replace "YOUR_FORM_ID" with the ID you copied from Formspree.
+  // In Contact.jsx
+const [state, handleSubmit] = useForm(process.env.REACT_APP_FORMSPREE_ID);
 
-    const res = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
-      method: "POST",
-      body: data,
-      headers: {
-        Accept: "application/json",
-      },
-    });
-
-    if (res.ok) {
-      form.reset();
-      setStatus("SUCCESS");
-    } else {
-      setStatus("ERROR");
-    }
-  };
+  if (state.succeeded) {
+    return (
+      <div className="text-center">
+        <h2 className="text-2xl text-green-400 font-bold">Thanks for your message!</h2>
+        <p className="text-gray-300">I'll get back to you soon.</p>
+      </div>
+    );
+  }
 
   return (
-    <section
-      id="contact"
-      className="min-h-screen bg-black text-white px-6 py-20 flex flex-col items-center"
-    >
-      <h2 className="text-4xl font-bold text-cyan-400 mb-8">Contact Me</h2>
-      <p className="text-gray-300 text-center max-w-xl mb-12">
-        Have a question or want to work together? Feel free to drop a message!
-      </p>
+    <section id="contact" className="min-h-screen bg-black text-white py-20 px-4 flex flex-col items-center justify-center">
+      <div className="w-full max-w-lg">
+        <h2 className="text-4xl font-bold text-cyan-400 mb-8 text-center">Contact Me</h2>
+        
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-300">
+              Full Name
+            </label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              required
+              className="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"
+            />
+          </div>
 
-      <motion.form
-        onSubmit={handleSubmit}
-        className="w-full max-w-xl bg-gray-900 p-8 rounded-lg border border-gray-700 shadow-md space-y-6"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div>
-          <label className="block mb-2 text-sm">Name</label>
-          <input
-            type="text"
-            name="name"
-            required
-            className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-cyan-500"
-          />
-        </div>
-        <div>
-          <label className="block mb-2 text-sm">Email</label>
-          <input
-            type="email"
-            name="email"
-            required
-            className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-cyan-500"
-          />
-        </div>
-        <div>
-          <label className="block mb-2 text-sm">Message</label>
-          <textarea
-            name="message"
-            rows="5"
-            required
-            className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-cyan-500"
-          />
-        </div>
-        <button
-          type="submit"
-          className="bg-cyan-500 text-black px-6 py-2 rounded hover:bg-cyan-400 transition"
-        >
-          Send Message
-        </button>
-        {status === "SUCCESS" && (
-          <p className="text-green-400 mt-2">Message sent successfully!</p>
-        )}
-        {status === "ERROR" && (
-          <p className="text-red-400 mt-2">Something went wrong. Please try again.</p>
-        )}
-      </motion.form>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-300">
+              Email Address
+            </label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              required
+              className="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"
+            />
+            <ValidationError 
+              prefix="Email" 
+              field="email"
+              errors={state.errors}
+              className="text-red-400 mt-1"
+            />
+          </div>
 
-      <div className="flex gap-6 mt-12 text-2xl">
-        <a href="https://github.com/harshini0804" target="_blank" rel="noreferrer">
-          <FaGithub className="hover:text-cyan-400" />
-        </a>
-        <a href="https://www.linkedin.com/in/harshini-gunturi-225098304/" target="_blank" rel="noreferrer">
-          <FaLinkedin className="hover:text-cyan-400" />
-        </a>
-        <a href="mailto:youremail@example.com">
-          <FaEnvelope className="hover:text-cyan-400" />
-        </a>
+          <div>
+            <label htmlFor="message" className="block text-sm font-medium text-gray-300">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="4"
+              className="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"
+            />
+            <ValidationError 
+              prefix="Message" 
+              field="message"
+              errors={state.errors}
+              className="text-red-400 mt-1"
+            />
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              disabled={state.submitting}
+              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 disabled:bg-gray-500"
+            >
+              {state.submitting ? "Sending..." : "Send Message"}
+            </button>
+          </div>
+        </form>
       </div>
     </section>
   );
