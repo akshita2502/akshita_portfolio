@@ -21,7 +21,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: echo "Formspree ID is ${{ env.REACT_APP_FORMSPREE_ID }}" && npm run build
+        run: npm run build
         env:
           REACT_APP_FORMSPREE_ID: ${{ secrets.REACT_APP_FORMSPREE_ID }}
 
