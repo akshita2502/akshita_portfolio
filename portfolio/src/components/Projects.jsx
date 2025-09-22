@@ -61,7 +61,7 @@ export default function Projects() {
 
       <h2 className="text-4xl font-bold text-cyan-400 mb-12 z-10 relative">Projects</h2>
 
-      <div className="flex flex-wrap gap-10 justify-center z-10 relative">
+      <div className="flex flex-col items-center gap-10 md:flex-row md:flex-wrap md:justify-center">
         {projects.map((project, idx) => (
           <ProjectCard key={idx} {...project} />
         ))}
