@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 export default function ProjectCard({ image, title, description, tech, demoLink, githubLink }) {
   return (
     <motion.div
-      className="bg-gray-800 rounded-lg shadow-lg border border-cyan-500 rounded-xl shadow-lg  w-full max-w-sm md:w-[380px] h-[370px] flex flex-col overflow-hidden"
+      className="bg-gray-800 rounded-lg shadow-lg border border-cyan-500 rounded-xl shadow-lg  w-full max-w-sm md:w-[380px] h-[380px] flex flex-col overflow-hidden"
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
